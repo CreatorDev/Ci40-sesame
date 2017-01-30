@@ -1,0 +1,45 @@
+<ObjectDefinitions>
+    <Items>
+        <ObjectDefinition>
+            <ObjectID>13201</ObjectID>
+            <SerialisationName>GarageDoor</SerialisationName>
+            <IsMandatory>False</IsMandatory>
+            <Singleton>False</Singleton>
+            <Properties>
+               <PropertyDefinition>
+                    <PropertyID>5523</PropertyID>
+                    <SerialisationName>DoorTrigger</SerialisationName>
+                    <DataType>Opaque</DataType>
+                    <IsMandatory>False</IsMandatory>
+                    <IsCollection>False</IsCollection>
+                    <Access>Execute</Access>
+                </PropertyDefinition>
+               <PropertyDefinition>
+                    <PropertyID>5501</PropertyID>
+                    <SerialisationName>DoorCounter</SerialisationName>
+                    <DataType>Integer</DataType>
+                    <IsMandatory>False</IsMandatory>
+                    <IsCollection>False</IsCollection>
+                    <Access>Read</Access>
+                </PropertyDefinition>
+               <PropertyDefinition>
+                    <PropertyID>5521</PropertyID>
+                    <SerialisationName>DoorCounterReset</SerialisationName>
+                    <DataType>Opaque</DataType>
+                    <IsMandatory>False</IsMandatory>
+                    <IsCollection>False</IsCollection>
+                    <Access>Execute</Access>
+                </PropertyDefinition>
+               <PropertyDefinition>
+                    <PropertyID>5602</PropertyID>
+                    <SerialisationName>DoorDuration</SerialisationName>
+                    <DataType>Float</DataType>
+                    <IsMandatory>False</IsMandatory>
+                    <IsCollection>False</IsCollection>
+                    <Access>Read</Access>
+                </PropertyDefinition>
+            </Properties>
+        </ObjectDefinition>
+        
+    </Items>
+</ObjectDefinitions>
