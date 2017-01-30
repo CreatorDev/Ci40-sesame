@@ -9,8 +9,7 @@ PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=$(TOPDIR)/../../packages/sesame-gateway
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-#PKG_SOURCE_VERSION:=$(PKG_VERSION)
-PKG_SOURCE_VERSION:=HEAD
+PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 CMAKE_INSTALL:=1
@@ -21,19 +20,19 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/sesame-gateway
-  SECTION:=utils
-  CATEGORY:=Utilities
-  DEPENDS:= +awalwm2m +libconfig +letmecreate
-  TITLE:=Sesame gateway app
+	SECTION:=utils
+	CATEGORY:=Utilities
+	DEPENDS:= +awalwm2m +letmecreate
+	TITLE:=Sesame gateway app
 endef
 
 define Package/sesame-gateway/description
-  Imagination Technologies sesame gateway app
+	Imagination Technologies sesame gateway app
 endef
 
 define Package/sesame-gateway/install
-        $(INSTALL_DIR) $(1)/usr/bin
-        $(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin
-endef0
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin
+endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))

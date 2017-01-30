@@ -1,0 +1,22 @@
+language: C
+dist: trusty
+env:
+  global:
+    - CI40_SDK="OpenWrt-SDK-0.10.4-pistachio-marduk_gcc-5.3.0_musl-1.1.14.Linux-x86_64"
+    - CI40_SDK_URL="https://downloads.creatordev.io/pistachio/marduk/"
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y gnupg git-core build-essential libssl-dev libncurses5-dev unzip gawk subversion mercurial
+script:
+  - export CI40_FILE_URL="$CI40_SDK_URL$CI40_SDK.tar.bz2"
+  - mkdir -p $HOME/build/feeds/local/ci40-sesame
+  - cp $TRAVIS_BUILD_DIR/Makefile.example $HOME/build/feeds/local/ci40-sesame/Makefile
+  - cd $HOME/build && wget $CI40_FILE_URL && tar xfj $CI40_SDK.tar.bz2
+  - echo "src-link local $HOME/build/feeds/local" >> $HOME/build/$CI40_SDK/feeds.conf.default
+  - cat $HOME/build/$CI40_SDK/feeds.conf.default
+  - cd $CI40_SDK && ./scripts/feeds update -a && ./scripts/feeds install -a
+  - sed --in-place --follow-symlinks -i '/^PKG_SOURCE/ d' feeds/local/ci40-sesame/Makefile
+  - make package/awalwm2m/compile
+  - make package/letmecreate/compile
+  - make package/ci40-sesame/prepare USE_SOURCE_DIR=$TRAVIS_BUILD_DIR
+  - make package/ci40-sesame/compile V=s
