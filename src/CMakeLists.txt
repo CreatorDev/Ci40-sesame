@@ -6,7 +6,7 @@ ADD_EXECUTABLE(sesame_gateway_appd sesame_gateway.c)
 FIND_LIBRARY(LIB_AWA libawa.so ${STAGING_DIR}/usr/lib)
 FIND_LIBRARY(LIB_LETMECREATECORE libletmecreate_core.so ${STAGING_DIR}/usr/lib)
 FIND_LIBRARY(LIB_LETMECREATECLICK libletmecreate_click.so ${STAGING_DIR}/usr/lib)
-TARGET_LINK_LIBRARIES(sesame_gateway_appd ${LIB_CONFIG} ${LIB_AWA} ${LIB_LETMECREATECORE} ${LIB_LETMECREATECLICK})
+TARGET_LINK_LIBRARIES(sesame_gateway_appd ${LIB_AWA} ${LIB_LETMECREATECORE} ${LIB_LETMECREATECLICK})
 	
 # Add install targets
 ######################
