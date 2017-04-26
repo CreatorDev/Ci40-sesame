@@ -6,6 +6,16 @@
 ## Overview
 Sesame gateway is a garage door controller application that runs on Ci40 board with Relay Click and Opto Click inserted in click interfaces. It acts as AwaL2MWM client and connects to **Creator Device Server**.
 
+Sesame has been written to interface with a Cardale Autoglide MkIII motorised garage door opener. The Sesame project includes 
+
+* [a java based web application](https://github.com/CreatorDev/webapp-sesame)
+* [an android app for mobile devices](https://github.com/CreatorDev/android-sesame)
+* [a simulator of the Autoglide MkIII functionality](https://github.com/CreatorDev/ci40-sesame-door-simulator) to allow the system to be tested with a Ci40 board and a stripped out CD-Rom drive.
+
+A video of the Sesame system with integration to IFTTT and Amazon Alexa is on the [CreatorDev youtube channel](https://www.youtube.com/watch?v=cXrg5ei1hVM).
+
+---
+
 The device server is a LWM2M management server designed to be implemented alongside third party cloud services to integrate M2M capability into an IoT application. The device server exposes two secure interfaces; REST API/HTTPs and LWM2M/CoAP.
 
 Sesame gateway application defines custom IPSO object 13201 to handle door functionality. It also defines two instances of IPSO 3200 object to monitor opened/closed sensors and sends notifications when the status changes.
