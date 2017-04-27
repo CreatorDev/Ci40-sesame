@@ -91,6 +91,12 @@ Door-Opened state change to 2
 
 ```
 
+To have the sesame gateway application autostart when the Ci40 board boots it must be scheduled to execute after the awa client application has registered the board to the Creator device server. The OpenWrt distribution on the Ci40 allows for startup applications to be ordered at bootup using the init.d and rc.d functionality. These steps rely on the Ci40 board being provisioned to a Creator Device server account already, and that the sesame gateway appd application is already installed on the Ci40 board.
+
+1. Create a script to call the sesame gateway application on your Ci40 in the /etc/init.d directory. A suitable script is available in the scripts directory of this repository that can be copied to etc/init.d. The script uses the START=99 priority index, the awa client startup executes at priority 98 in the boot process therefore the sesame gateway application will be started directly afterwards.
+2. Make the startup script executable using chmod a+x start_sesame
+3. Enable the startup script to be included in the boot process using /etc/init.d/start_sesame enable
+
 ----
 
 ## Contributing
